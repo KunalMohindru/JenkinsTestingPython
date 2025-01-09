@@ -2,13 +2,13 @@ node {
     
     stage('Install dependencies') {
                 bat """
-                pip install -r Frames\requirements.txt
+                pip install -r Frames\\requirements.txt
                 """
         }
 
     stage('Run Tests') {
                 bat """
-                pytest -s  Frames\Test\test_google.py
+                pytest -s  Frames\\Test\\test_google.py
                 """
         }
 }
