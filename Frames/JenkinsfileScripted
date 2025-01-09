@@ -1,0 +1,18 @@
+node {
+    
+    stage('Install dependencies') {
+        steps {
+                bat """
+                pip install -r Frames\\requirements.txt
+                """
+            }
+        }
+
+    stage('Run Tests') {
+        steps {
+                bat """
+                pytest -s  Frames\\Test\\test_google.py
+                """
+            }
+        }
+}
