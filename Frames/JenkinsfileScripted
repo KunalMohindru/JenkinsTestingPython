@@ -1,7 +1,7 @@
 
 node {
 
-    def projectDir = 'C:\Users\kunal_mohindru\Desktop\JenkinsTestingPython\Frames'  // Specify your project directory
+    def projectDir = 'JenkinsTestingPython\Frames'  // Specify your project directory
 
     try {
         
