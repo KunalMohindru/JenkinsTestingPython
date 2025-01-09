@@ -2,7 +2,7 @@ node {
     
     stage('Install dependencies') {
                 bat """
-                pip install -r Frames\\requirements.txt
+                pip install -r JenkinsTestingPython\\Frames\\requirements.txt
                 """
         }
 
