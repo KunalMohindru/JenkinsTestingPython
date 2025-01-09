@@ -14,7 +14,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                 sh """
-                pytest -s -v --browser_name=chrome --headless Frames/Test/test_google.py
+                pytest -s -v --browser_name=headless Frames/Test/test_google.py
                 """
             }
         }
