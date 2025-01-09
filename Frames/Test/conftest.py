@@ -16,7 +16,7 @@ def create_Driver(request):
     request.cls.config_obj= config_obj
 
     yield 
-    driver.close()
+    driver.quit()
   
 
 @pytest.hookimpl()
