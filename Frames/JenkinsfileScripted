@@ -1,11 +1,5 @@
 node {
     
-    stage('Install dependencies') {
-                bat """
-                pip install -r JenkinsTestingPython\\Frames\\requirements.txt
-                """
-        }
-
     stage('Run Tests') {
                 bat """
                 pytest -s  Frames\\Test\\test_google.py
