@@ -6,6 +6,15 @@ pipeline {
     }
 
     stages {
+
+        stage('Create Virtual Environment') {
+            steps {
+                    // Create a virtual environment
+                    bat 'python3 -m venv virtual_environment'
+                    // Activate the virtual environment (Linux/Mac example)
+                    bat 'source virtual_environment/bin/activate'
+            }
+
         stage('Install dependencies') {
             steps {
                 bat """
@@ -16,7 +25,7 @@ pipeline {
 
         stage('print') {
             steps {
-                echo "Running tests with ${params.browser_name}  mode"
+                echo "Running tests with ${params.browser_name} mode"
             }
         }            
 
@@ -26,6 +35,16 @@ pipeline {
                 bat """
                 pytest -s -v --browser_name=${params.browser_name} Frames\\Test\\test_google.py
                 """
+            }
+        }
+
+        stage('Deactivate and delete virtual environment') {
+
+            steps {
+                // deactivate the virtual environment before deleting it
+                bat 'deactivate'
+                // remove the virtual env
+                bat 'rm -rf venv'
             }
         }
     }
