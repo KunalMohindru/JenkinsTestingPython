@@ -16,7 +16,7 @@ pipeline {
 
         stage('print') {
             steps {
-                echo "Running tests with ${params.BROWSER}  mode"
+                echo "Running tests with ${params.browser_name}  mode"
             }
         }            
 
