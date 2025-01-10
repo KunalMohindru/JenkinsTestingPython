@@ -14,7 +14,7 @@ pipeline {
             }
         }  
 
-        stage('Install dependencies') {
+        stage('print') {
             steps {
                 echo "Running tests with ${params.BROWSER}  mode"
             }
