@@ -12,9 +12,14 @@ pipeline {
                 pip install -r Frames\\requirements.txt
                 """
             }
-        }
+        }            
 
         stage('Run Tests') {
+
+            steps {
+                    echo "Running tests with ${params.BROWSER}  mode"
+            }
+
             steps {
                 bat """
                 pytest -s -v --brower_name=${params.browser_name} Frames\\Test\\test_google.py
