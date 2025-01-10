@@ -12,7 +12,7 @@ pipeline {
                     // Create a virtual environment
                     bat 'python -m venv virtual_environment'
                     // Activate the virtual environment (Linux/Mac example)
-                    bat 'virtual_environment/bin/activate'
+                    bat 'virtual_environment\\Scripts\\activate.bat'
             }
         }
 
