@@ -24,7 +24,7 @@ pipeline {
 
             steps {
                 bat """
-                pytest -s -v --brower_name=${params.browser_name} Frames\\Test\\test_google.py
+                pytest -s -v --browser_name=${params.browser_name} Frames\\Test\\test_google.py
                 """
             }
         }
