@@ -1,37 +1,17 @@
 
 node {
 
-    def projectDir = 'JenkinsTestingPython'  // Specify your project directory
-
-    try {
-        
-
-        // Print workspace for debugging the file paths
-        stage('Print Workspace') {
-            bat 'echo Current Directory: %cd%'
-        }
-
         // Install dependencies from requirements.txt
         stage('Install dependencies') {
             bat """
-            pip install -r ${projectDir}\\Frames\\requirements.txt
+            pip install -r Frames\\requirements.txt
             """
         }
 
         // Run the tests using pytest
         stage('Run Tests') {
             bat """
-            pytest -s ${projectDir}\\Frames\\Test\\test_google.py
+            pytest -s -v --browser_name=headless  Frames\\Test\\test_google.py
             """
         }
-
-    } catch (Exception e) {
-        currentBuild.result = 'FAILURE'
-        throw e
-    } finally {
-        // Optional cleanup steps
-        echo 'Cleaning up...'
-        // You can clean up the virtual environment or other resources here
-        // bat "rmdir /s /q ${venvDir}"
-    }
 }
