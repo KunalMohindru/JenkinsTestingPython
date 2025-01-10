@@ -23,7 +23,7 @@ def create_Driver(request):
 def pytest_addoption(parser):
     # it tells the command line to accept a key-value pair with key --brower_name and store it
     parser.addoption(
-        "--browser_name", action="store", default="chrome")
+        "--browser_name", action="store", default="headless")
     
     parser.addoption(
         "--env", action="store", default="QA")
