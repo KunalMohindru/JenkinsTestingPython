@@ -14,7 +14,8 @@ pipeline {
                     // Activate the virtual environment (Linux/Mac example)
                     bat 'source virtual_environment/bin/activate'
             }
-
+        }
+        
         stage('Install dependencies') {
             steps {
                 bat """
