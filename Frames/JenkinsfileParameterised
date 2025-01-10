@@ -10,12 +10,12 @@ pipeline {
         stage('Create Virtual Environment') {
             steps {
                     // Create a virtual environment
-                    bat 'python3 -m venv virtual_environment'
+                    bat 'python -m venv virtual_environment'
                     // Activate the virtual environment (Linux/Mac example)
                     bat 'source virtual_environment/bin/activate'
             }
         }
-        
+
         stage('Install dependencies') {
             steps {
                 bat """
@@ -48,5 +48,11 @@ pipeline {
                 bat 'rm -rf venv'
             }
         }
+
+        post {
+        always {
+            cleanWs() // Clean workspace
+        }
+    }
     }
 }
