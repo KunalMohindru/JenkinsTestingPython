@@ -12,13 +12,15 @@ pipeline {
                 pip install -r Frames\\requirements.txt
                 """
             }
+        }  
+
+        stage('Install dependencies') {
+            steps {
+                echo "Running tests with ${params.BROWSER}  mode"
+            }
         }            
 
         stage('Run Tests') {
-
-            steps {
-                    echo "Running tests with ${params.BROWSER}  mode"
-            }
 
             steps {
                 bat """
