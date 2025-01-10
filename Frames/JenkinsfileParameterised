@@ -43,9 +43,7 @@ pipeline {
 
             steps {
                 // deactivate the virtual environment before deleting it
-                bat 'deactivate'
-                // remove the virtual env
-                bat 'rm -rf venv'
+                bat 'rmdir /s /q virtual_environment'
             }
         }
 
