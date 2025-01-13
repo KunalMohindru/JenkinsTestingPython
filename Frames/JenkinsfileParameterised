@@ -5,6 +5,9 @@ pipeline {
         choice(name: 'browser_name', choices: ['chrome', 'edge', 'headless'])
     }
 
+    environment{
+        SECRET_VARIABLE=credentials('secret_variable_id')
+    }
     stages {
 
         stage('Create Virtual Environment') {
@@ -27,6 +30,7 @@ pipeline {
         stage('print') {
             steps {
                 echo "Running tests with ${params.browser_name} mode"
+                echo "Secret testing credetials %SECRET_VARIABLE%"
             }
         }            
 
